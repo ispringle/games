@@ -23,9 +23,6 @@ function love.load()
   playingAreaHeight = 388
   background = love.graphics.newImage('assets/background.png')
 
-  -- Init Window
-  love.window.setMode(playingAreaWidth, playingAreaHeight)
-
   -- Bird
   birdX = 62
   birdWidth = 30
@@ -133,6 +130,7 @@ end
 function love.draw()
   -- Draw background
   love.graphics.setColor(255, 255, 255) --white
+  love.graphics.draw(background)
 
   -- Draw bird
   local spriteNum = math.floor(
