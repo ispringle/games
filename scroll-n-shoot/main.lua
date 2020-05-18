@@ -1,5 +1,3 @@
-debug = true
-
 function CheckCollision(x1, y1, w1, h1, x2, y2, w2, h2)
   return  x1 < x2+w2 and
           x2 < x1+w1 and
@@ -7,7 +5,46 @@ function CheckCollision(x1, y1, w1, h1, x2, y2, w2, h2)
           y2 < y1+h1
 end
 
+function DrawBackground(tileMap, tiles)
+  for _, tile in pairs(tileMap) do
+      love.graphics.drawLayer(tiles, tile.num+1, tile.x, tile.y)
+  end
+end
+
+function NewTileMap(tileWidth, tileHeight, totalTiles)
+  local tiles = {}
+  local y = 0 - tileHeight
+  for i = 0, love.graphics.getHeight() / tileHeight + 1 do
+    local x = 0
+    for j=0,4 do
+      rn = math.random(0, totalTiles - 1)
+      local tile = {}
+      tile.num = rn
+      tile.x = x
+      tile.y = y
+      table.insert(tiles, tile)
+      x = x + tileWidth
+    end
+    y = y + tileHeight
+  end
+  return tiles
+end
+
 function love.load(arg)
+  -- Background
+  backgroundSpeed = 25
+  local tileWidth = 120
+  tileHeight = 140
+  local totalTiles = 5
+  local images = {}
+  for i=0, totalTiles - 1 do
+    table.insert(
+      images,
+      'assets/background' .. i .. '.png'
+      )
+  end
+  tiles = love.graphics.newArrayImage(images)
+
   --Player
   player = {x = 200, y = 710, speed = 150, img = nil}
   player.img = love.graphics.newImage('assets/player.png')
@@ -22,6 +59,8 @@ function love.load(arg)
   enemyImg = love.graphics.newImage('assets/enemy.png')
 
   function reset()
+    tilesMap = NewTileMap(tileWidth, tileHeight, totalTiles)
+
     player.x = 200
     player.y = 710
     isAlive = true
@@ -41,7 +80,10 @@ function love.keypressed(key)
   -- Exit game
   if key == "escape" then
     love.event.quit()
+  elseif key == "t" then
+    debug.debug()
   end
+
   if key == 'r' and not isAlive then
     reset()
   end
@@ -49,6 +91,15 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
+  -- Background Movement
+  for i, tile in ipairs(tilesMap) do
+    tile.y = tile.y + (backgroundSpeed * dt)
+    if tile.y > love.graphics.getHeight() then
+      tile.y = 0 - tileHeight
+     end
+   end
+  
+
   -- Player movement
   if love.keyboard.isDown('left', 'a')
   and player.x > 0 then
@@ -124,6 +175,9 @@ function love.update(dt)
 end
 
 function love.draw(dt)
+  ---- Background
+  DrawBackground(tilesMap, tiles)
+
   -- Player
   if isAlive then
     love.graphics.draw(player.img, player.x, player.y)
