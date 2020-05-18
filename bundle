@@ -1,20 +1,13 @@
 #!/bin/bash
-function inArray
-{
-  local e
-  for e in "${@:2}"; do
-    [[ "$e" == "$1" ]] && return 0;
-  done
-  return 1
-}
 
-DIR_BLACKLIST=("release")
+DIR_BLACKLIST="release media staging"
 
 mkdir staging
 
 for DIR in *; do
-  if [ -d "${DIR}" ] && ! inArray "$DIR" "$DIR_BLACKLIST"; then
+  if [ -d "${DIR}" ] && ! [ -z "${DIR_BLACKLIST##*$DIR*}" ]; then
     cd $DIR
+    echo "Zipping $DIR:"
     zip -9 -r "$DIR.love" .
     cd ..
     mv "$DIR/$DIR.love" ./staging
@@ -22,6 +15,7 @@ for DIR in *; do
 done
 
 cd ./staging
+echo "Creating bundle.zip"
 zip -r bundle.zip .
 cd ..
 mv ./staging/bundle.zip ./release/
