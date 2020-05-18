@@ -2,21 +2,12 @@
 
 DIR_BLACKLIST="release media staging"
 
-mkdir staging
-
 for DIR in *; do
   if [ -d "${DIR}" ] && ! [ -z "${DIR_BLACKLIST##*$DIR*}" ]; then
-    cd $DIR
-    echo "Zipping $DIR:"
-    zip -9 -r "$DIR.love" .
-    cd ..
-    mv "$DIR/$DIR.love" ./staging
+    love-release "release/" "$DIR"
   fi
 done
 
-cd ./staging
+cd ./release
 echo "Creating bundle.zip"
 zip -r bundle.zip .
-cd ..
-mv ./staging/bundle.zip ./release/
-rm -rf ./staging
