@@ -11,14 +11,14 @@ A simple hello world game in Löve2D
 A blatant ripoff of Flappy Birds, ~blatantly copied~ inspired by Santos'
 wonderful [tutorial][0].
 
-![Screenshot of bird]('media/bird_scrot.png')
+![Screenshot of bird](/media/bird_scrot.png)
 
 ## scroll-n-shoot
 
 A rewrite of the classic scrolling airplane shooting game. This was created
 following a tutorial by [OSM Studios][1].
 
-![Screenshot of scroll-n-shoot]('media/scroll-n-shoot_scrot.png')
+![Screenshot of scroll-n-shoot](/media/scroll-n-shoot_scrot.png)
 
 [//]: # (References)
 [0]: https://simplegametutorials.github.io/bird/
