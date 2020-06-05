@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR_BLACKLIST="release media staging"
+DIR_BLACKLIST="release media staging lpg"
 
 for DIR in *; do
   if [ -d "${DIR}" ] && ! [ -z "${DIR_BLACKLIST##*$DIR*}" ]; then
