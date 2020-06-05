@@ -12,7 +12,7 @@ end
 function mt:draw()
   assets.qdraw(4, self.x, self.y)
   if self.touches_hero then
-    love.graphics.setColor(0, 0, 0)
+    love.graphics.setColor(const.text_color)
     love.graphics.printf('[E]', self.x-100, self.y-32, self.w+200, 'center')
     love.graphics.setColor(255, 255, 255, 255)
   end

@@ -9,7 +9,7 @@ mt.__index = mt
 function mt:draw()
   local size = const.tilesize
   if self.is_dead then
-    love.graphics.setColor(255, 255, 255, 128)
+    love.graphics.setColor(1, 1, 1, 0.5)
     assets.qdraw(self.anim:getFrame(), self.x + size, self.y+1, math.pi /2)
     love.graphics.setColor(255, 255, 255, 255)
   else

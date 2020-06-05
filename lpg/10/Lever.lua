@@ -20,7 +20,7 @@ function mt:draw()
     x = self.x - 100
     y = self.y - 32
     local limit = self.w + 200
-    love.graphics.setColor(0, 0, 0)
+    love.graphics.setColor(const.text_color)
     love.graphics.printf('[E]', x, y, limit, 'center')
     love.graphics.setColor(255, 255, 255, 255)
   end

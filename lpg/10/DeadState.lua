@@ -1,4 +1,5 @@
 local GameState = require('GameState')
+local const = require('const')
 
 local mt = {}
 mt.__index = mt
@@ -10,7 +11,7 @@ function mt:update(dt)
 end
 
 function mt:draw()
-  love.graphics.setColor(0, 0, 0)
+  love.graphics.setColor(const.text_color)
   love.graphics.print('GAME OVER\n Press [ENTER] to restart', 100, 100)
   love.graphics.setColor(255, 255, 255, 255)
 end
