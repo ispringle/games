@@ -1,5 +1,8 @@
-release/
-target/
-node_modules/
-.cache/
-/target
+*/release/
+*/node_modules/
+*/.cache/
+*/target
+*/build
+npm-debug.log
+.env
+.DS_Store
