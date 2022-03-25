@@ -1,0 +1,11 @@
+serve:
+    miniserve --index index.html ./target/tiny/
+
+build:
+    mkdir -p ./target/tiny/
+    cp ./static/index.html ./target/tiny/
+    cargo build --release --package tiny --target wasm32-unknown-unknown --features web
+    wasm-bindgen --target web --no-typescript --out-dir ./target/tiny/ ./target/wasm32-unknown-unknown/release/tiny.wasm
+
+clean:
+    rm -rf ./target/tiny/

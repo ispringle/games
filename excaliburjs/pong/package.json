@@ -1,0 +1,21 @@
+{
+  "name": "pong",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "parcel index.html --no-autoinstall",
+    "test": "npm run build && node ./test/test.js",
+    "typecheck": "tsc -p . --noEmit",
+    "build": "parcel build index.html"
+  },
+  "author": "Ian S. Pringle <ian@dapringles.com>",
+  "license": "GPL3",
+  "assetsPath": "static/",
+  "dependencies": {
+    "excalibur": "^0.25.3",
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.6.2"
+  },
+  "devDependencies": {
+    "sass": "^1.49.9"
+  }
+}
