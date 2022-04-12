@@ -1,8 +1,12 @@
-*/release/
-*/node_modules/
-*/.cache/
+**/release/
+**/node_modules/
+**/.cache/
+**/dist/
+
 */target
 */build
 npm-debug.log
 .env
 .DS_Store
+
+**/modules/
