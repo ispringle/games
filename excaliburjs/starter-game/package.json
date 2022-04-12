@@ -1,5 +1,5 @@
 {
-  "name": "pong",
+  "name": "starter-game",
   "version": "0.1.0",
   "scripts": {
     "start": "parcel index.html --no-autoinstall",
