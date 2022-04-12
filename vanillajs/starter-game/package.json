@@ -1,0 +1,23 @@
+{
+  "name": "starter-game",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "parcel index.html --no-autoinstall",
+    "test": "npm run build && node ./test/test.js",
+    "typecheck": "tsc -p . --noEmit",
+    "build": "parcel build index.html"
+  },
+  "author": "Ian S. Pringle <ian@dapringles.com>",
+  "license": "GPL3",
+  "assetsPath": "static/",
+  "dependencies": {
+    "baconjs": "^3.0.17"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.4.1",
+    "@parcel/transformer-yaml": "^2.4.1",
+    "parcel": "^2.4.1",
+    "sass": "^1.50.0",
+    "typescript": "^4.6.3"
+  }
+}
