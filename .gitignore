@@ -2,7 +2,7 @@
 **/node_modules/
 **/.cache/
 **/dist/
-**/parcel_cache/
+**/parcel-cache/
 
 */target
 */build
