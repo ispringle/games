@@ -29,15 +29,15 @@ const init = () => {
 const loop = timestamp => {
   let elapsed = (Game.timestamp - Game.priorTimestamp) / 1000;
   Game.priorTimestamp = Game.timestamp;
-  let tick = Math.min(elapsed, 0.1);
+  let dt = Math.min(elapsed, 0.1);
 
-  update(tick);
+  update(dt);
   clear();
   draw();
   window.requestAnimationFrame(loop)
 }
 
-const update = tick => {
+const update = dt => {
   // Updates go here
 }
 
